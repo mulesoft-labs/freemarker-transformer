@@ -20,11 +20,11 @@
     </properties>
 
     <scm>
-         <connection>scm:git:git://github.com:mulesoft/freemarker-connector.git</connection>
+         <connection>scm:git:git://github.com:mulesoft/freemarker-transformer.git</connection>
          <developerConnection>
-             scm:git:git@github.com:mulesoft/freemarker-connector.git
+             scm:git:git@github.com:mulesoft/freemarker-transformer.git
          </developerConnection>
-         <url>http://github.com/mulesoft/freemarker-connector</url>
+         <url>http://github.com/mulesoft/freemarker-transformer</url>
      </scm>
      <distributionManagement>
          <repository>
