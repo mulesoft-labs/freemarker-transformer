@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:freemarker="http://www.mulesoft.org/schema/mule/freemarker"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+        http://www.mulesoft.org/schema/mule/freemarker http://www.mulesoft.org/schema/mule/freemarker/1.0/mule-freemarker.xsd">
+
+	<flow name="transformTest">
+		<freemarker:transformer>
+            <freemarker:template>
+                My Username is ${payload.username}
+                My Account Id is ${payload.accountid}
+            </freemarker:template>
+        </freemarker:transformer>
+        <logger message="#[payload]" level="INFO"/>
+	</flow>
+
+    <flow name="externalTransformTest">
+        <freemarker:transformer template-file="external.ftl"/>
+        <logger message="#[payload]" level="INFO"/>
+    </flow>
+
+</mule>
