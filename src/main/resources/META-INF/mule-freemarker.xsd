@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.mulesoft.org/schema/mule/freemarker"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+            xmlns:spring="http://www.springframework.org/schema/beans"
+            xmlns:schemadoc="http://www.mulesoft.org/schema/mule/schemadoc"
+            targetNamespace="http://www.mulesoft.org/schema/mule/freemarker"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.springframework.org/schema/beans"
+                schemaLocation="http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"/>
+    <xsd:import namespace="http://www.mulesoft.org/schema/mule/core"
+                schemaLocation="http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd"/>
+    <xsd:import namespace="http://www.mulesoft.org/schema/mule/schemadoc"
+                schemaLocation="http://www.mulesoft.org/schema/mule/schemadoc/3.1/mule-schemadoc.xsd"/>
+
+    <xsd:annotation>
+        <xsd:documentation>
+            The Freemarker module contains a number of tools to help transform data using Freemarker.
+        </xsd:documentation>
+
+        <xsd:appinfo>
+            <schemadoc:short-name>freemarker</schemadoc:short-name>
+            <schemadoc:page-title>Freemarker Module</schemadoc:page-title>
+
+            <schemadoc:additional-documentation where="after-common-elements">
+            </schemadoc:additional-documentation>
+
+            <schemadoc:additional-documentation where="after-specific-elements">
+            </schemadoc:additional-documentation>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+    <xsd:element name="transformer" type="freemarkerTransformerType" substitutionGroup="mule:abstract-transformer">
+        <xsd:annotation>
+            <xsd:documentation>The Freemarker transformer uses Freemarker to transform the message payload. Transformation objects are pooled for better performance. You can set transformation context properties on the transformer and can pull these properties from the message using Expression Evaluators.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="freemarkerTransformerType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:abstractTransformerType">
+                <xsd:sequence>
+                    <xsd:element name="template" maxOccurs="1" minOccurs="0" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation>The inline Freemarker template definition. This is not required if the {{template-file}} attribute is set.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="context-property" type="spring:entryType" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>A property that wil be made available to the transform context. Expression Evaluators can be used to grab these properties from the message at runtime.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="template-file" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The full path to the Freemarker template file to use when performing the transformation. This can be a path on the local file system or on the classpath. This attribute is not required if the &lt;template&gt; element has been set.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>
