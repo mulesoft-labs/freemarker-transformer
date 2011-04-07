@@ -27,6 +27,15 @@ public class FreemarkerConnector {
      * Processes the template, using data from the map, and outputs
      * the resulting text
      *
+     * {@code
+     * <freemarker:render>
+     *     <freemarker:properties>
+     *         <freemarker:property key="name" value="#[json:name]"/>
+     *         <freemarker:property key="payload" value="#[payload]"/>
+     *     </freemarker:properties>
+     * </freemarker:render>
+     * }
+     *
      * @param properties Data model used to feed the template
      */
     @Operation
