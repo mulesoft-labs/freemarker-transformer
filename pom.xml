@@ -88,6 +88,9 @@
                 <artifactId>mule-cloud-connector-maven-plugin</artifactId>
                 <version>2.0.12</version>
                 <extensions>true</extensions>
+				<configuration>
+					<schemaVersion>1.0</schemaVersion>
+				</configuration>
             </plugin>
 
             <!-- The release distribution for this project -->
@@ -202,6 +205,7 @@
             <groupId>org.mule.tools</groupId>
             <artifactId>mule-cloud-connector-annotations</artifactId>
             <version>2.0.12</version>
+			<scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.freemarker</groupId>
