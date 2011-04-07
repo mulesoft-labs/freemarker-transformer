@@ -24,7 +24,7 @@ public class FreemarkerConnector {
     private String template;
 
     /**
-     * Processes the template, using data from the map, and outputs
+     * Processes the template using the specified properties and outputs
      * the resulting text
      *
      * {@code
