@@ -28,7 +28,7 @@ public class FreemarkerConnector {
      * the resulting text
      *
      * {@code
-     * <freemarker:render>
+     * <freemarker:render config-ref="mytemplate">
      *     <freemarker:properties>
      *         <freemarker:property key="name" value="#[json:name]"/>
      *         <freemarker:property key="payload" value="#[payload]"/>
@@ -64,5 +64,9 @@ public class FreemarkerConnector {
         }
 
         return out.toString();
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
     }
 }

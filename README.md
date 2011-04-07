@@ -46,13 +46,14 @@ Configuration
 
 You can configure the connector as follows:
 
-    <freemarker:config/>
+    <freemarker:config template="value"/>
 
 Here is detailed list of all the configuration attributes:
 
 | attribute | description | optional | default value |
 |:-----------|:-----------|:---------|:--------------|
 |name|Give a name to this configuration so it can be later referenced by config-ref.|yes||
+|template|The name of the freemarker template file|no|
 
 
 Render
@@ -64,7 +65,7 @@ the resulting text
 
 
     
-    <freemarker:render>
+    <freemarker:render config-ref="mytemplate">
         <freemarker:properties>
             <freemarker:property key="name" value="#[json:name]"/>
             <freemarker:property key="payload" value="#[payload]"/>
@@ -76,6 +77,7 @@ the resulting text
 |:-----------|:-----------|:---------|:--------------|:----------------|
 |config-ref|Specify which configuration to use for this invocation|yes||
 |properties| Data model used to feed the template|yes||
+
 
 
 
