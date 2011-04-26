@@ -211,7 +211,7 @@
             <layout>default</layout>
         </repository>
         <repository>
-            <id>muleforge-release</id>
+            <id>muleforge-snapshot</id>
             <name>MuleForge Snapshots Repository</name>
             <url>http://repository.mulesoft.org/snapshots/</url>
             <layout>default</layout>
