@@ -242,7 +242,7 @@
             </snapshots>
         </pluginRepository>
         <pluginRepository>
-            <id>muleforge-plugin-release</id>
+            <id>muleforge-plugin-snapshot</id>
             <name>Muleforge Snapshots Repository</name>
             <url>http://repository.mulesoft.org/snapshots/</url>
             <releases>
