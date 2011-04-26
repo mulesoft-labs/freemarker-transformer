@@ -13,6 +13,7 @@ import org.mule.transformer.types.DataTypeFactory;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class FreemarkerTransformer extends AbstractMessageTransformer {
@@ -64,6 +65,7 @@ public class FreemarkerTransformer extends AbstractMessageTransformer {
         Object payload = message.getPayload();
         StringWriter out = new StringWriter();
         try {
+            this.configuration.setEncoding(Locale.US, outputEncoding);
             this.configuration.setSharedVariable("payload", payload);
             this.freemarkerTemplate.process(this.contextProperties, out);
 
