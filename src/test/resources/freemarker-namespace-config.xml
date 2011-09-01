@@ -20,5 +20,17 @@
         <freemarker:transformer template-file="external.ftl"/>
         <logger message="#[payload]" level="INFO"/>
     </flow>
+    
+    <flow name="evalExpressionsTest">
+    	<freemarker:transformer>
+    	    <freemarker:template>
+    	        Count is ${count}
+                My Username is ${payload.username}
+                My Account Id is ${payload.accountid}
+            </freemarker:template>
+            <freemarker:context-property key="count" value="#[function:count]"/>
+    	</freemarker:transformer>
+    	<logger message="#[payload]" level="INFO"/>
+    </flow>
 
 </mule>

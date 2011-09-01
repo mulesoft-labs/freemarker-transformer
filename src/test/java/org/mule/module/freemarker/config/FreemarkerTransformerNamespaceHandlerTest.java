@@ -36,4 +36,15 @@ public class FreemarkerTransformerNamespaceHandlerTest extends FunctionalTestCas
         return (SimpleFlowConstruct) muleContext.getRegistry().lookupFlowConstruct(name);
     }
 
+    public void testInlineTransformWithExpressions() throws Exception {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "mulesoft");
+        map.put("accountid", "12345");
+        SimpleFlowConstruct flow = lookupFlowConstruct("evalExpressionsTest");
+        MuleMessage message = flow.process(getTestEvent(map)).getMessage();
+        assertEquals("\n    	        Count is 0"+
+                     "\n                My Username is mulesoft" +
+                     "\n                My Account Id is 12345\n", message.getPayload());
+    }
+    
 }
