@@ -66,12 +66,12 @@ public class FreemarkerTransformer extends AbstractMessageTransformer {
         StringWriter out = new StringWriter();
         try {
             this.configuration.setEncoding(Locale.US, outputEncoding);
-            this.configuration.setSharedVariable("payload", payload);
+            //this.configuration.setSharedVariable("payload", payload);
             
             Map contextPropsExpressioned = evaluateExpressions(this.contextProperties, message);
             if(logger.isDebugEnabled()) logger.debug("Context Parameters evaluated "+contextPropsExpressioned);
             
-            
+            contextPropsExpressioned.put("payload", payload);
             this.freemarkerTemplate.process(contextPropsExpressioned, out);
 
             out.flush();
