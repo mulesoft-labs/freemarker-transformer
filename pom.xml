@@ -10,7 +10,7 @@
     <url>http://www.muleforge.org/projects/mule-module-freemarker</url>
 
     <properties>
-        <mule.version>3.1.0</mule.version>
+        <mule.version>4.1.1</mule.version>
         <!-- Tools properties -->
         <eclipsePluginVersion>2.8</eclipsePluginVersion>
         <vmtype>org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType</vmtype>
